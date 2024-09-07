@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://type-ahead-search-deploy.onrender.com';
 
 const searchInput = document.getElementById('textInput');
 const suggestionList = document.getElementById('suggestionList');
