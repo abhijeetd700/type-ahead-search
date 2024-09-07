@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type-Ahead Search</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #93ade6;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header {
+            /* background-color: #2e2e2e; */
+            padding: 10px 20px; 
+            text-align: center;
+            /* color: ; */
+        }
+
+        .auto {
+            position: relative;
+            display: inline-block;
+            width: 300px;
+            margin: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: DodgerBlue;
+        }
+
+        ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            background-color: #fff;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        li:hover {
+            background-color: #f4f4f4;
+        }
+        .button{
+            border:none;
+            font-size:15px;
+            padding: 10px 20px;
+            margin:5px;
+            border-radius:4px;
+            outline:none;
+        }
+        .button:hover{
+            border: 1px solid #c8c8c8;
+            padding: 9px 19px;
+            color:#808080;
+        }
+        .button:focus{
+            border:1px solid #4885ed;
+            padding: 9px 19px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="container">
+        
+        <div class="header">
+            <h1>Type Ahead Query Search</h1>
+            <p>Type to search...</p>
+        </div>
+        
+        <form autocomplete="off" method="get" onsubmit="handleSubmit(event)">
+            <div class="auto">
+                <input id="textInput" type="text" 
+                name="textInput" placeholder="Search...">
+                <ul id="suggestionList" class="lst"></ul>
+            </div>
+            <input type="submit" value="Search" class="button">
+        </form>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+    <script src="./script.js"></script>
+    
+</body>
+</html>
